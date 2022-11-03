@@ -6,12 +6,20 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.*;
+import java.util.Collection;
+
+@Entity
+@Table(name = "users")
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO, generator="usr_id_seq")
+    @SequenceGenerator(name="usr_id_seq", sequenceName="usr_id_seq",allocationSize=1)
     private int id;
     private String name;
     private String login;
@@ -20,4 +28,10 @@ public class User {
     private String salt;
     private String email;
     private String phone;
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
+    @ElementCollection(targetClass = Role.class)
+    @JoinTable(name = "ROLES", joinColumns = @JoinColumn(name = "USER_ID"))
+    @Column(name = "role", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Collection<Role> roles;
 }

@@ -1,6 +1,6 @@
+/*
 package org.vikbur.db;
 
-import org.jetbrains.annotations.NotNull;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Service;
@@ -28,3 +28,4 @@ public class PostgresUtil {
         return jdbcTemplate;
     }
 }
+*/
