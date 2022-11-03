@@ -6,5 +6,6 @@
         <!--property name="connection.pool_size">1</property-->
         <property name="hibernate.ddl-auto">none</property>
         <mapping class="org.vikbur.models.User"/>
+        <mapping class="org.vikbur.models.Band"/>
     </session-factory>
 </hibernate-configuration>

@@ -1,4 +1,3 @@
-/*
 package org.vikbur.configs;
 
 import lombok.RequiredArgsConstructor;
@@ -40,4 +39,3 @@ public class SecurityConfig {
                 ).build();
     }
 }
-*/

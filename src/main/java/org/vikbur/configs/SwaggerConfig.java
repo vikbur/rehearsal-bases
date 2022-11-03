@@ -19,10 +19,10 @@ public class SwaggerConfig {
                 .info(new Info().title("Rehearsal bases API")
                                 .description("API для информационной системы 'Репетиционные базы'")
                                 .version("1.0")
-                                .contact(new Contact().name("Viktor Burko").email("vikt_soulfly@mail.ru")));
-                /*.addSecurityItem(new SecurityRequirement().addList(securitySchemeName))
+                                .contact(new Contact().name("Viktor Burko").email("vikt_soulfly@mail.ru")))
+                .addSecurityItem(new SecurityRequirement().addList(securitySchemeName))
                 .components(new Components().addSecuritySchemes(securitySchemeName,
-                        new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("bearer").bearerFormat("JWT")));*/
+                        new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("bearer").bearerFormat("JWT")));
 
     }
 }

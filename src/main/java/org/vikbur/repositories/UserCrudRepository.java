@@ -1,4 +1,4 @@
-package org.vikbur.repositories.user;
+package org.vikbur.repositories;
 
 import org.springframework.data.repository.CrudRepository;
 import org.vikbur.models.User;
