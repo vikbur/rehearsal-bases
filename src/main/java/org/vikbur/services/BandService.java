@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.vikbur.models.Band;
 import org.vikbur.models.User;
 import org.vikbur.models.requests.CreateBandRequest;
+import org.vikbur.models.responses.CreateObjectResponse;
 import org.vikbur.repositories.BandCrudRepository;
 import org.vikbur.repositories.UserCrudRepository;
 
@@ -30,7 +31,9 @@ public class BandService {
             band.addMember(user);
         }
         bandCrudRepository.save(band);
-        return gson.toJson("OK");
+        return gson.toJson(new CreateObjectResponse(
+                String.format("Band '%s' created", band.getName()),
+                bandCrudRepository.findByName(band.getName()).orElse(new Band()).getId()));
     }
 
     private void validateBand(CreateBandRequest request) throws IllegalArgumentException {

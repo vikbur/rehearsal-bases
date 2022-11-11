@@ -27,7 +27,7 @@ public class BandController {
     private final BandService bandService;
     private final Gson gson = new Gson();
 
-    @PostMapping(value = "/")
+    @PostMapping(value = "/create", produces = MediaType.APPLICATION_JSON_VALUE)
     @Operation(
             summary = "Добавление новой музыльканой группы",
             responses = {
@@ -41,7 +41,7 @@ public class BandController {
             return ResponseEntity.ok(bandService.createBand(createBandRequest, userLogin));
         } catch (Exception e){
             log.error("createBand error: ", e);
-            return ResponseEntity.badRequest().body(e.getMessage());
+            return ResponseEntity.badRequest().body(gson.toJson(e.getMessage()));
         }
     }
 

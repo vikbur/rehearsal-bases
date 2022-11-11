@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.vikbur.models.Role;
 import org.vikbur.models.User;
 import org.vikbur.models.requests.CreateUserRequest;
+import org.vikbur.models.responses.CreateObjectResponse;
 import org.vikbur.repositories.UserCrudRepository;
 import org.vikbur.utils.HashUtil;
 
@@ -38,7 +39,9 @@ public class UserService {
 
         log.info(String.format("User '%s' created", user.getLogin()));
 
-        return gson.toJson("OK");
+        return gson.toJson(new CreateObjectResponse(
+                String.format("User '%s' created", user.getLogin()),
+                userCrudRepository.findByLogin(user.getLogin()).orElse(new User()).getId()));
     }
 
     public String getUserById(int id) throws SQLException, IllegalArgumentException {

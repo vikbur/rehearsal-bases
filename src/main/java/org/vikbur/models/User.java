@@ -33,7 +33,7 @@ public class User {
 
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     @ElementCollection(targetClass = Role.class)
-    @JoinTable(name = "ROLES", joinColumns = @JoinColumn(name = "USER_ID"))
+    @JoinTable(name = "roles", joinColumns = @JoinColumn(name = "user_id"))
     @Column(name = "role", nullable = false)
     @Enumerated(EnumType.STRING)
     private Collection<Role> roles;

@@ -7,5 +7,7 @@
         <property name="hibernate.ddl-auto">none</property>
         <mapping class="org.vikbur.models.User"/>
         <mapping class="org.vikbur.models.Band"/>
+        <mapping class="org.vikbur.models.Base"/>
+        <mapping class="org.vikbur.models.Room"/>
     </session-factory>
 </hibernate-configuration>
